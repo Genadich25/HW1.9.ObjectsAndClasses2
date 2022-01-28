@@ -25,4 +25,22 @@ public class Author {
         return fullName;
     }
 
+    @Override
+    public String toString(){
+        return firstName + " " + secondName;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if(this.getClass() != obj.getClass()){
+            return false;
+        }
+        Author author = (Author) obj;
+        return fullName.equals(author.fullName);
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(fullName);
+    }
 }
