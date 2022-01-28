@@ -3,9 +3,9 @@ package ru.lookBag;
 import java.util.Objects;
 
 public class Book {
-    String yearPublication;
-    String publisherName;
-    Author authorName;
+    private String yearPublication;
+    private final String publisherName;
+    private final Author authorName;
 
     public Book(String yearPublication, String publisherName, Author authorName){
         this.authorName = authorName;
@@ -32,7 +32,7 @@ public class Book {
 
     @Override
     public String toString(){
-        return authorName.getFullName() + " | " + publisherName + " | " + yearPublication;
+        return authorName.toString() + " | " + publisherName + " | " + yearPublication;
     }
 
     @Override
@@ -42,7 +42,9 @@ public class Book {
         }
         Book book = (Book) other;
         if(this.authorName.equals(book.authorName)){
-            return this.publisherName.equals(book.publisherName);
+            if (this.yearPublication.equals(book.yearPublication)) {
+                return this.publisherName.equals(book.publisherName);
+            }
         }
         return false;
     }

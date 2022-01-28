@@ -3,9 +3,9 @@ package ru.lookBag;
 import java.util.Objects;
 
 public class Author {
-    String firstName;
-    String secondName;
-    String fullName;
+    private final String firstName;
+    private final String secondName;
+    private final String fullName;
 
     public Author(String firstName, String secondName){
         this.firstName = firstName;
