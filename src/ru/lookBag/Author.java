@@ -3,9 +3,9 @@ package ru.lookBag;
 import java.util.Objects;
 
 public class Author {
-    String firstName;
-    String secondName;
-    String fullName;
+    private final String firstName;
+    private final String secondName;
+    private final String fullName;
 
     public Author(String firstName, String secondName){
         this.firstName = firstName;
@@ -25,4 +25,22 @@ public class Author {
         return fullName;
     }
 
+    @Override
+    public String toString(){
+        return firstName + " " + secondName;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if(this.getClass() != obj.getClass()){
+            return false;
+        }
+        Author author = (Author) obj;
+        return fullName.equals(author.fullName);
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(fullName);
+    }
 }

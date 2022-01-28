@@ -1,37 +1,37 @@
 package ru.lookBag;
 
 public class Library {
-    Book[] Library;
+    private final Book[] library;
 
     public Library(Book[] Library){
-        this.Library = Library;
+        this.library = Library;
     }
 
     public void readLibrary () {
-        System.out.println("В библиотеке " + Library.length + " книг.");
+        System.out.println("В библиотеке " + library.length + " книг.");
         System.out.println("№  Автор книги | Название книги | Год публикации");
-        for (int i = 0; i < Library.length; i++) {
+        for (int i = 0; i < library.length; i++) {
             System.out.print((i + 1) + ": ");
-            System.out.println(Library[i].toString());
+            System.out.println(library[i].toString());
         }
     }
 
     public void printNameBook(String publisherName){
-        for (int i = 0; i < Library.length; i++) {
-            if (Library[i].publisherName.equals(publisherName)) {
-                System.out.println(Library[i].toString());
+        for (int i = 0; i < library.length; i++) {
+            if (library[i].getPublisherName().equals(publisherName)) {
+                System.out.println(library[i]);
             }
         }
     }
 
     public void changeYearPublicationByNameBook(String publisherName, String yearPublication){
-        for (int i = 0; i < Library.length; i++) {
-            if (Library[i].publisherName.equals(publisherName)) {
-                Library[i].yearPublication = yearPublication;
-                System.out.println("Год публикации книги \"" + Library[i].publisherName + "\" был изменен на " + yearPublication);
+        for (int i = 0; i < library.length; i++) {
+            if (library[i].getPublisherName().equals(publisherName)) {
+                library[i].setYearPublication(yearPublication);
+                System.out.println("Год публикации книги \"" + library[i].getYearPublication() + "\" был изменен на " + yearPublication);
                 break;
             }
-            if(i == Library.length - 1){
+            if(i == library.length - 1){
                 System.out.println("Книги " + publisherName + " в библиотеке нет!");
             }
         }
